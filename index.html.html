@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Mohit Yadav - Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: white;
+            background-size: 15%;
+            animation: gradientBG 10s ease infinite;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: url("https://www.shutterstock.com/image-vector/abstract-tech-network-connection-dots-260nw-2418837781.jpg");
+            color: #000000;
+            text-align: center;
+            padding: 2rem 1rem;
+            width: 100%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-shadow: 2px 2px 4px rgba(151, 136, 136, 0.7);
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-shadow: 1px 1px 3px rgba(139, 129, 129, 0.7);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            width: 100%;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            margin: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f9a826;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 1.8rem auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: minmax(200px, 300px) 1fr;
+            gap: 3rem;
+            align-items: start;
+            text-align: justify;
+            background: #ffffff;
+            color: #000000;
+            border-radius: 10px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .about-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            scroll-margin-top: 100px; /* This ensures the section doesn't get hidden behind the sticky navbar */
+        }
+
+        .box {
+            background: #f2fbfe;
+            color: #000000;
+            box-shadow: 0 4px 8px rgba(190, 47, 47, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box h2 {
+            color: #000000;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .box ul {
+            list-style: none;
+            padding: 0;
+            flex: 1;
+        }
+
+        .box ul li {
+            margin-bottom: 1rem;
+            background: rgba(72, 119, 194, 0.2);
+            padding: 1rem;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .box ul li:hover {
+            transform: scale(1.02);
+            background: rgba(72, 119, 194, 0.3);
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000000;
+            text-align: center;
+            padding: 1.5rem;
+            width: 100%;
+            margin-top: auto;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #000000;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f9a826;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            nav {
+                padding: 0.25rem;  /* Reduced padding */
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.25rem;  /* Small gap between items */
+            }
+
+            nav a {
+                font-size: 0.85rem;  /* Smaller font */
+                margin: 0.25rem 0.5rem;  /* Reduced margins */
+                padding: 0.25rem 0.5rem;  /* Added some padding for touch targets */
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-section img {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mohit Yadav</h1>
+        <p>Tech Enthusiast | Researcher | Problem Solver | Visionary</p>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#education">Education and Experience</a>
+        <a href="#skills">Skills and Achievements</a>
+        <a href="researchpublication.html">Publications</a>
+        <a href="updatedpatents.html">Patents</a>
+        <a href="#books">Blogs</a>
+        <a href="#books">Gallery</a>
+    </nav>
+
+    <div class="container">
+        <!-- About Section -->
+        <div class="about-section" id="about">
+            <img src="myimage.jpg" alt="Mohit Yadav">
+            <div>
+                <h2>About Me</h2>
+                <p>
+                    I am Mohit Yadav, a dedicated researcher and technologist currently associated in studies with Department of Physics and Computer Science at Dayalbagh Educational Institute, Agra, India. I hold a diploma in engineering with a specialization in Software Development and a bachelor’s degree in the Internet of Things (IoT). I have completed my Master's in Computer Science with major subjects - Neural Network, Data Compression, Data Mining, Quantum Computing, Compiler Designing, Logic and Functional Paradigms, Evolutionary Algorithms and Advance Networks. My expertise lies in IoT, Embedded Systems, UAV/Drone Technology, Machine Learning and Swarm Optimization. Over the years, I have been honored with various awards and achievements at various positions. Additionally, I have served as an invited editor, reviewer, and speaker at notable events and institutions. My projects span IoT systems for agriculture, healthcare, mobility along with innovative UAV designs for high-performance applications. I actively engage in workshops, industrial visits, and co-curricular activities to continuously expand my knowledge and skills.
+                </p>
+            </div>
+        </div>
+
+        <!-- Education and Experience Section -->
+        <div class="grid" id="education">
+            <div class="box">
+                <h2>Education</h2>
+                <ul>
+                    <li><b>High School</b> : DAV Fertilizer Public School, Babrala</li>
+                    <li><b>Diploma in Engineering with Software Development </b> : DEI Technical College, Agra</li>
+                    <li><b>Bachelor's In Internet of Things</b> : Dayalbagh Educational Institute, Agra</li>
+                    <li><b>Master's In Computer Science</b> : Dayalbagh Educational Institute, Agra</li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h2>Experience</h2>
+                <ul>
+                    <li><b>Full Stack Developer :</b> Scientific Computing Virtual Lab,<br> Project Sanctioned By - Ministry of Education, India.</li>
+                    <li><b>Android Developer :</b> Iotianhub Pvt. Ltd. Agra</li>
+                    <li><b>Python Developer : </b>E-Gain Software Training Consultancy,Agra</li>
+                    <li><b>IoT Developer : </b>DEI Summer Research Fellowship</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Skills and Achievements Section -->
+        <div class="grid" id="skills">
+            <div class="box">
+                <h2>Skills</h2>
+                <ul>
+                    <li><b>Programming Languages :</b> Embedded Programming, Java, Python</li>
+                    <li><b>Database :</b> MySQL, Oracle, MongoDB</li>
+                    <li><b>Technologies :</b> IoT, UAVs and Drone development, Machine Learning</li>
+                    <li><b>Tools :</b> Spyder, Android Studio, Proteus, MATLAB, Mission Planner </li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h2>Achievements</h2>
+                <ul>
+                    <li>10+ National/International Patent Grants</li>
+                    <li>15+ Research Publications</li>
+                    <li>Invited Reviewer at Various Reputed Journals</li>
+                    <li>Best Paper Award at NSC Conference 2024</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Mohit Yadav. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="mailto:mohityadavdei@yahoo.com">Email</a>
+                <a href="https://www.linkedin.com/in/mohityadav" target="_blank">LinkedIn</a>
+                <a href="https://github.com/mohityadav" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
