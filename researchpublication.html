@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Publications</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header  {
+            background: url("https://www.shutterstock.com/image-vector/abstract-tech-network-connection-dots-260nw-2418837781.jpg");
+            color: #000000;
+            text-align: center;
+            padding: 2rem 1rem;
+            width: 100%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-shadow: 2px 2px 4px rgba(151, 136, 136, 0.7);
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-shadow: 1px 1px 3px rgba(139, 129, 129, 0.7);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            width: 100%;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            margin: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f9a826;
+        }
+
+        @media screen and (max-width: 768px) {
+
+nav {
+    padding: 0.25rem;  /* Reduced padding */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;  /* Small gap between items */
+}
+
+nav a {
+    font-size: 0.85rem;  /* Smaller font */
+    margin: 0.25rem 0.5rem;  /* Reduced margins */
+    padding: 0.25rem 0.5rem;  /* Added some padding for touch targets */
+}
+
+
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">Research Publications</h1>
+                    <p class="mt-2 text-gray-600">Academic Works and Contributions</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <div class="stats-grid grid grid-cols-3 gap-4 text-center">
+                        <div class="px-4 py-2 bg-blue-50 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">8</div>
+                            <div class="text-sm text-gray-600">Publications</div>
+                        </div>
+                        <div class="px-4 py-2 bg-blue-50 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">20+</div>
+                            <div class="text-sm text-gray-600">Citations</div>
+                        </div>
+                        <div class="px-4 py-2 bg-blue-50 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">2</div>
+                            <div class="text-sm text-gray-600">h-index</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="finalindex.html">About Me</a>
+        <a href="finalindex.html">Education and Experience</a>
+        <a href="finalindex.html">Skills and Achievements</a>
+        <a href="researchpublication.html">Publications</a>
+        <a href="updatedpatents.html">Patents</a>
+        <a href="#books">Blogs</a>
+        <a href="#books">Gallery</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <!-- Filters -->
+        <div class="mb-8 flex flex-col sm:flex-row gap-4 items-center justify-between">
+            <div class="relative">
+                <input type="text" 
+                       placeholder="Search publications..." 
+                       class="w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div class="flex gap-4">
+                <select class="bg-white border border-gray-300 rounded-lg px-4 py-2 focus:ring-blue-500 focus:border-blue-500">
+                    <option>All Years</option>
+                    <option>2024</option>
+                    <option>2023</option>
+                    <option>2022</option>
+                </select>
+                <select class="bg-white border border-gray-300 rounded-lg px-4 py-2 focus:ring-blue-500 focus:border-blue-500">
+                    <option>All Categories</option>
+                    <option>Journal Articles</option>
+                    <option>Conference Papers</option>
+                    <option>Book Chapters</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Publications Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+            <!-- Publication Card 1 -->
+            <article class="publication-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-50 rounded-full">
+                            Journal Article
+                        </span>
+                        <span class="text-sm text-gray-500">2022</span>
+                    </div>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">
+                        IoT based Smart Electricity Meter with Energy Prediction and Consumption
+                    </h3>
+                    <p class="mt-2 text-gray-600">
+                        Authors: Mohit Yadav, Amarjeet Singh Chauham, Aditya Vardhan, Dr. Sanjay Saini
+                    </p>
+                    <p class="mt-2 text-sm text-gray-500">
+                        Published in:  Journal of Emerging Technologies and Innovative Research
+                    </p>
+                    <div class="mt-4 flex items-center gap-4">
+                        <span class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            2 Citations
+                        </span>
+                        <a href="https://www.researchgate.net/publication/360081121_IOT_BASED_SMART_ELECTRICITY_METER_WITH_ENERGY_PREDICTION_AND_CONSUMPTION" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            View Paper →
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Publication Card 2 -->
+            <article class="publication-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold text-green-600 bg-green-50 rounded-full">
+                            Conference Paper
+                        </span>
+                        <span class="text-sm text-gray-500">2023</span>
+                    </div>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">
+                        A Study on Creation of Industry 5.0: New Innovations using big data through artificial intelligence, Internet of Things and next-origination technology policy. 
+                    </h3>
+                    <p class="mt-2 text-gray-600">
+                        Authors: Mohit Yadav, Amarjeet Singh Chauhan, Aditya Vardhan, Dr. Sanjay Saini
+                    </p>
+                    <p class="mt-2 text-sm text-gray-500">
+                        Presented at: 2023 IEEE International Students' Conference on Electrical, Electronics and Computer Science (SCEECS)
+                    </p>
+                    <div class="mt-4 flex items-center gap-4">
+                        <span class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            9 Citations
+                        </span>
+                        <a href="https://ieeexplore.ieee.org/document/10063069" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            View Paper →
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Publication Card 3 -->
+            <article class="publication-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold text-purple-600 bg-purple-50 rounded-full">
+                            Book Chapter
+                        </span>
+                        <span class="text-sm text-gray-500">2024</span>
+                    </div>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">
+                        Post-Pandemic Development and Adoption of Technologies in Agriculture
+                    </h3>
+                    <p class="mt-2 text-gray-600">
+                        Authors: Vijay Kumar Dalal, Mohit Yadav, Amarjeet Singh Chauhan
+                    </p>
+                    <p class="mt-2 text-sm text-gray-500">
+                        Published in: Multidisciplinary National Conference on the Impact of Post Pandemic on Management, Science, Information Technology, Education & Commerce
+                    </p>
+                    <div class="mt-4 flex items-center gap-4">
+                        <span class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            1 Citations
+                        </span>
+                        <a href="https://www.researchgate.net/publication/384224585_Post-Pandemic_Development_and_Adoption_of_Technologies_in_Agriculture" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            View Chapter →
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+<br>
+
+        <!-- Publications Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+            <!-- Publication Card 1 -->
+            <article class="publication-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-50 rounded-full">
+                            Journal Article
+                        </span>
+                        <span class="text-sm text-gray-500">2022</span>
+                    </div>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">
+                        IoT based Health Monitoring System
+                    </h3>
+                    <p class="mt-2 text-gray-600">
+                        Authors: Mohit Yadav, Amarjeet Singh Chauham, Aditya Vardhan, Dr. Sanjay Saini
+                    </p>
+                    <p class="mt-2 text-sm text-gray-500">
+                        Published in:  International Journal of Creative Research Thoughts
+                    </p>
+                    <div class="mt-4 flex items-center gap-4">
+                        <span class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            2 Citations
+                        </span>
+                        <a href="https://www.researchgate.net/publication/360080858_IOT_BASED_HEALTH_MONITORING_SYSTEM" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            View Paper →
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Publication Card 2 -->
+            <article class="publication-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold text-green-600 bg-green-50 rounded-full">
+                            Conference Paper
+                        </span>
+                        <span class="text-sm text-gray-500">2024</span>
+                    </div>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">
+                        Appraisal Study and analytics of Industrial 4.0 - A rebellion towards existing twins. 
+                    </h3>
+                    <p class="mt-2 text-gray-600">
+                        Authors: Mohit Yadav, Amarjeet Singh Chauhan, Aditya Vardhan, Dr. Sanjay Saini
+                    </p>
+                    <p class="mt-2 text-sm text-gray-500">
+                        Presented at: 2023 IEEE International Students' Conference on Electrical, Electronics and Computer Science (SCEECS)
+                    </p>
+                    <div class="mt-4 flex items-center gap-4">
+                        <span class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            2 Citations
+                        </span>
+                        <a href="https://ieeexplore.ieee.org/document/10481861" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            View Paper →
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Publication Card 3 -->
+            <article class="publication-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold text-green-600 bg-green-50 rounded-full">
+                            Conference Paper
+                        </span>
+                        <span class="text-sm text-gray-500">2024</span>
+                    </div>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">
+                        IoT and IoE transformations in precision farming agriculture : Sensor based monitoring, Automated irrigation and Livestock monitoring. 
+                    </h3>
+                    <p class="mt-2 text-gray-600">
+                        Authors: Mohit Yadav, Amarjeet Singh Chauhan, Aditya Vardhan, Dr. Sanjay Saini
+                    </p>
+                    <p class="mt-2 text-sm text-gray-500">
+                        Presented at: 2023 IEEE International Students' Conference on Electrical, Electronics and Computer Science (SCEECS)
+                    </p>
+                    <div class="mt-4 flex items-center gap-4">
+                        <span class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            2 Citations
+                        </span>
+                        <a href="https://ieeexplore.ieee.org/document/10481981" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            View Paper →
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+<br>
+
+        <!-- Publications Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+            <!-- Publication Card 1 -->
+            <article class="publication-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-50 rounded-full">
+                            Journal Article
+                        </span>
+                        <span class="text-sm text-gray-500">2022</span>
+                    </div>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">
+                        IoT based Smart Residence System
+                    </h3>
+                    <p class="mt-2 text-gray-600">
+                        Authors: Mohit Yadav, Amarjeet Singh Chauham, Aditya Vardhan, Dr. Sanjay Saini
+                    </p>
+                    <p class="mt-2 text-sm text-gray-500">
+                        Published in:  International Journal of Creative Research and Thoughts
+                    </p>
+                    <div class="mt-4 flex items-center gap-4">
+                        <span class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            1 Citations
+                        </span>
+                        <a href="https://www.researchgate.net/publication/359918671_IOT_BASED_SMART_RESIDENCE_SYSTEM" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            View Paper →
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Publication Card 2 -->
+            <article class="publication-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-50 rounded-full">
+                            Journal Article
+                        </span>
+                        <span class="text-sm text-gray-500">2022</span>
+                    </div>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">
+                        Baaljyoti -Shiksha ke Nanhe Kadam An android based E-learning for primary kids in India
+                    </h3>
+                    <p class="mt-2 text-gray-600">
+                        Authors: Mohit Yadav, Manisha Gupta, Aditya Vardhan
+                    </p>
+                    <p class="mt-2 text-sm text-gray-500">
+                        Published in:  YMER Journal
+                    </p>
+                    <div class="mt-4 flex items-center gap-4">
+                        <span class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            2 Citations
+                        </span>
+                        <a href="https://www.researchgate.net/publication/368401896_Baaljyoti_-Shiksha_ke_Nanhe_Kadam_An_android_based_E-learning_for_primary_kids_in_India">
+                            View Paper →
+                        </a>
+                    </div>
+                </div>
+            </article>
+           
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-8 flex justify-center">
+            <nav class="inline-flex rounded-md shadow">
+                <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    Previous
+                </a>
+                <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-blue-600 hover:bg-gray-50">
+                    1
+                </a>
+                <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    2
+                </a>
+                <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    3
+                </a>
+                <a href="#" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    Next
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+            <div class="text-center text-gray-500 text-sm">
+                © 2024 Research Publications. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

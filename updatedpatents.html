@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Patents</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(253, 254, 255);
+            color: #000000;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header styles */
+        header  {
+            background: url("https://www.shutterstock.com/image-vector/abstract-tech-network-connection-dots-260nw-2418837781.jpg");
+            color: #000000;
+            text-align: center;
+            padding: 2rem 1rem;
+            width: 100%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-shadow: 2px 2px 4px rgba(151, 136, 136, 0.7);
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-shadow: 1px 1px 3px rgba(139, 129, 129, 0.7);
+        }
+
+        /* Navigation styles */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            width: 100%;
+        }
+
+        nav::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        nav::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            margin: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f9a826;
+        }
+
+        /* Container styles */
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 1rem auto;
+            padding: 0 1rem;
+        }
+        
+
+        /* Patent card styles */
+        .patent {
+            background: white;
+            margin: 1rem 0;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .patent h2 {
+            margin: 0 0 0.5rem;
+            color: #e3702e;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+        }
+
+        .patent img {
+            max-width: 120px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .patent img:hover {
+            transform: scale(1.05);
+        }
+
+        .details {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .modal:target {
+            display: flex;
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width: 768px) {
+            .patent {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .patent img {
+                max-width: 100%;
+                width: 200px;
+            }
+
+            nav {
+                padding: 0.25rem;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem;
+            }
+
+            .container {
+                width: 100%;
+                padding: 0 0.5rem;
+            }
+
+            .patent {
+                padding: 0.75rem;
+            }
+
+            .patent h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+</head>
+<body class="bg-gray-50">
+     <!-- Header -->
+     <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">Patents and Innovations</h1>
+                    <p class="mt-2 text-gray-600">Showcasing the New Discoveries</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <div class="stats-grid grid grid-cols-3 gap-4 text-center">
+                        <div class="px-4 py-2 bg-blue-50 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">8</div>
+                            <div>Design Patents</div>
+                        </div>
+                        <div class="px-4 py-2 bg-blue-50 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">2</div>
+                            <div>Utility Patents</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="finalindex.html">About Me</a>
+        <a href="finalindex.html">Education and Experience</a>
+        <a href="finalindex.html">Skills and Achievements</a>
+        <a href="researchpublication.html">Publications</a>
+        <a href="updatedpatents.html">Patents</a>
+        <a href="#books">Blogs</a>
+        <a href="#books">Gallery</a>
+    </nav>
+
+    <div class="container">
+        <!-- Patent Template -->
+        <!-- Duplicate this block for each patent -->
+        <div class="patent">
+            <a href="#modal1"><img src="lwdronecert.png" alt="Certificate for Light Weight Drone"></a>
+            <div class="details">
+                <h2>1. LIGHT WEIGHT DRONE</h2>
+                <p>A compact and efficient drone design for versatile applications such as surveillance, delivery and racing.</p>
+                <p><strong>Status:</strong>GRANTED</p>
+                <p><strong>Patent No.:</strong>6299404</p>
+                <p><strong>Country:</strong>UNITED KINGDOM</p>
+            </div>
+            <a href="#modal2"><img src="imagelwdrone.png" alt="Image of Light Weight Drone"></a>
+        </div>
+
+        <div class="patent">
+            <a href="#modal3"><img src="16rotorcert.jpeg" alt="Certificate for 16Rotor Drone"></a>
+            <div class="details">
+                <h2>2. 16 ROTOR HIGH PAYLOAD DRONE</h2>
+                <p>A compact and efficient drone design for heavy payload lifting in industries and agiculture field.</p>
+                <p><strong>Status:</strong>GRANTED</p>
+                <p><strong>Patent No.:</strong>6304506</p>
+                <p><strong>Country:</strong>UNITED KINGDOM</p>
+            </div>
+            <a href="#modal4"><img src="16rotor.png" alt="Image of 16Rotor Drone"></a>
+        </div>
+
+        <div class="patent">
+            <a href="#modal5"><img src="32rotorcert.png" alt="Certificate for 32 rotor Drone"></a>
+            <div class="details">
+                <h2>3. 32 ROTOR HIGH PAYLOAD DRONE</h2>
+                <p>A compact and efficient drone design for applications for lifting very high payload.</p>
+                <p><strong>Status:</strong>GRANTED</p>
+                <p><strong>Patent No.:</strong>6312678</p>
+                <p><strong>Country:</strong>UNITED KINGDOM</p>
+            </div>
+            <a href="#modal6"><img src="32rotor.png" alt="Image of 32 rotor drone"></a>
+        </div>
+
+        <div class="patent">
+            <a href="#modal7"><img src="rchelicopter.png" alt="Certificate for RC HELICOPTER"></a>
+            <div class="details">
+                <h2>4. REMOTE CONTROLLED HELICOPTER DRONE</h2>
+                <p>A compact and efficient drone design for RC controlled helicopter for medical purpose.</p>
+                <p><strong>Status:</strong>GRANTED</p>
+                <p><strong>Patent No.:</strong>6309933</p>
+                <p><strong>Country:</strong>UNITED KINGDOM</p>
+                
+            </div>
+            <a href="#modal8"><img src="helicopterimage.png" alt="Image of RC HELICOPTER"></a>
+        </div>
+
+        <div class="patent">
+            <a href="#modal9"><img src="pcbcert.jpeg" alt="Certificate for PCB"></a>
+            <div class="details">
+                <h2>5. PRINTED CIRCUIT BOARD</h2>
+                <p>A compact and efficient drone design for versatile applications such as surveillance, delivery and racing.</p>
+                <p><strong>Status:</strong>GRANTED</p>
+                <p><strong>Patent No.:</strong>6328234</p>
+                <p><strong>Country:</strong>UNITED KINGDOM</p>
+                
+            </div>
+            <a href="#modal10"><img src="pcbimage.jpeg" alt="Image of PCB"></a>
+        </div>
+
+        <div class="patent">
+            <a href="#modal11"><img src="vtolcert.jpeg" alt="Certificate for VTOL DRONE"></a>
+            <div class="details">
+                <h2>6. HIGH SPEED VTOL DRONE</h2>
+                <p>A compact and efficient drone design for racing purpose and having the vertical Landing and TakeOff along with rotor too.</p>
+                <p><strong>Status:</strong>GRANTED</p>
+                <p><strong>Patent No.:</strong>400661-001</p>
+                <p><strong>Country:</strong>INDIA</p>
+                
+            </div>
+            <a href="#modal12"><img src="vtolimage.png" alt="Image of VTOL DRONE"></a>
+        </div>
+
+        <div class="patent">
+            <a href="#modal13"><img src="hydroponiccert.jpeg" alt="Certificate for Hydroponic machine"></a>
+            <div class="details">
+                <h2>7. DEVICE FOR NUTRIENTS DISTRIBUTION AND MONITORING MACHINE FOR HYDROPONICS USING IoT</h2>
+                <p>A compact and efficient design for regulating the distribution of nutrients using IoT for hydroponics in agriculture,</p>
+                <p><strong>Status:</strong>GRANTED</p>
+                <p><strong>Patent No.:</strong>6326599</p>
+                <p><strong>Country:</strong>UNITED KINGDOM</p>
+            </div>
+            <a href="#modal14"><img src="iothydro.png" alt="Image of Hydroponic Machine"></a>
+        </div>
+
+        <div class="patent">
+            <a href="#modal15"><img src="medidrone.png" alt="Certificate for Medidrone"></a>
+            <div class="details">
+                <h2>8. MEDI DRONE : MEDICINE DELIVERY DRONE</h2>
+                <p>A compact and efficient drone design for fast delivery of medicine and other medical equipments.</p>
+                <p><strong>Status:</strong>GRANTED</p>
+                <p><strong>Patent No.:</strong>6317960</p>
+                <p><strong>Country:</strong>UNITED KINGDOM</p>
+            </div>
+            <a href="#modal16"><img src="medicinedrone.png" alt="Image of Medidrone"></a>
+        </div>
+
+        <!-- Repeat similar blocks for other patents -->
+    </div>
+
+    <!-- Modals for image enlargement -->
+    <div id="modal1" class="modal">
+        <a href="#"><img src="lwdronecert.png" alt="Certificate for Light Weight Drone"></a>
+    </div>
+    <div id="modal2" class="modal">
+        <a href="#"><img src="imagelwdrone.png" alt="Image of Light Weight Drone"></a>
+    </div>
+    <div id="modal3" class="modal">
+        <a href="#"><img src="16rotorcert.jpeg" alt="Certificate for 16Rotor Drone"></a>
+    </div>
+    <div id="modal4" class="modal">
+        <a href="#"><img src="16rotor.png" alt="Image of 16Rotor Drone"></a>
+    </div>
+    <div id="modal5" class="modal">
+        <a href="#"><img src="32rotorcert.png" alt="Certificate for 32 rotor Drone"></a>
+    </div>
+
+    <div id="modal6" class="modal">
+        <a href="#"><img src="32rotor.png" alt="Image of 32 rotor drone"></a>
+    </div>
+
+    <div id="modal7" class="modal">
+        <a href="#"><img src="rchelicopter.png" alt="Certificate for RC HELICOPTER"></a>
+    </div>
+
+    <div id="modal8" class="modal">
+        <a href="#"><img src="helicopterimage.png" alt="Image of RC HELICOPTER"></a>
+    </div>
+    <div id="modal9" class="modal">
+        <a href="#"><img src="pcbcert.jpeg" alt="Certificate for PCB"></a>
+    </div>
+    <div id="modal10" class="modal">
+        <a href="#"><img src="pcbimage.jpeg" alt="Image of PCB"></a>
+    </div>
+    <div id="modal11" class="modal">
+        <a href="#"><img src="vtolcert.jpeg" alt="Certificate for VTOL DRONE"></a>
+    </div>
+    <div id="modal12" class="modal">
+        <a href="#"><img src="vtolimage.png" alt="Image of VTOL DRONE"></a>
+    </div>
+    <div id="modal13" class="modal">
+        <a href="#"><img src="hydroponiccert.jpeg" alt="Certificate of Hydroponic Machine"></a>
+    </div>
+    <div id="modal14" class="modal">
+        <a href="#"><img src="iothydro.png" alt="Image of Hydroponic Machine"></a>
+    </div>
+    <div id="modal15" class="modal">
+        <a href="#"><img src="medidrone.png" alt="Certificate for medidrone"></a>
+    </div>
+    <div id="modal16" class="modal">
+        <a href="#"><img src="medicinedrone.png" alt="Image of medidrone"></a>
+    </div>
+
+
+
+
+</body>
+</html>
